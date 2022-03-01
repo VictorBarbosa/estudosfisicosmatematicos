@@ -11,8 +11,19 @@ class Index {
         this.txtEx2Input1 = document.getElementById('txtEx2Input1');
         this.txtEx2Input2 = document.getElementById('txtEx2Input2');
         this.txtEx2Result = document.getElementById('txtEx2Result');
+        /** Ex3  */
+        this.txtEx3Input1 = document.getElementById('txtEx3Input1');
+        this.txtEx3Input2 = document.getElementById('txtEx3Input2');
+        this.txtEx3Input3 = document.getElementById('txtEx3Input3');
+        this.txtEx3Result = document.getElementById('txtEx3Result');
+        /** Ex 4 */
+        this.txtEx4Input1 = document.getElementById('txtEx4Input1');
+        this.txtEx4Input2 = document.getElementById('txtEx4Input2');
+        this.txtEx4Result = document.getElementById('txtEx4Result');
         this.onExercicio1();
         this.onExercicio2();
+        this.onExercicio3();
+        this.onExercicio4();
     }
     onExercicio1() {
         this.txtEx1Input1.addEventListener('change', this.exercicio1.bind(this));
@@ -23,6 +34,17 @@ class Index {
         this.txtEx2Input1.addEventListener('change', this.exercicio2.bind(this));
         this.txtEx2Input2.addEventListener('change', this.exercicio2.bind(this));
         this.exercicio2();
+    }
+    onExercicio3() {
+        this.txtEx3Input1.addEventListener('change', this.exercicio3.bind(this));
+        this.txtEx3Input2.addEventListener('change', this.exercicio3.bind(this));
+        this.txtEx3Input3.addEventListener('change', this.exercicio3.bind(this));
+        this.exercicio3();
+    }
+    onExercicio4() {
+        this.txtEx4Input1.addEventListener('change', this.exercicio4.bind(this));
+        this.txtEx4Input2.addEventListener('change', this.exercicio4.bind(this));
+        this.exercicio4();
     }
     /**
      * Sabendo que um jogador correu uma distancia de 12000 metros em 90 minutos ,
@@ -62,21 +84,21 @@ class Index {
         /**
          * Convertendo metros para km
          */
-        const distancia = Utils.ConverterMetrosParaKilometros(1500);
+        const distancia = Utils.ConverterMetrosParaKilometros(Number(this.txtEx3Input3.value));
         // arredondando o tempo e depois dividindo por 60 minutos , teremos um quarto de hora (0,25)
-        const tempo = Math.round(14.51) / 60;
+        const tempo = Math.round(Number(`${this.txtEx3Input1.value}.${this.txtEx3Input2.value}`)) / 60;
         const velocidadeMedia = this.velo.velocidadeEscalarMedia(distancia, tempo);
-        alert(`A velocidade do nadador era de   :${velocidadeMedia}km`);
+        this.txtEx3Result.value = String(velocidadeMedia);
     }
     /**
      * A ponte Rio-Niteroi tem uma extensao de 14KM,Considerando que um carro consiga atravessa-la
      * com uma velodidade media de 72 KM/h, gastara para isso um intervalo de dempo em minutos igual a ?
      */
     exercicio4() {
-        const compimentoPonte = 14;
-        const velocidade = 72;
-        const tempoGasto = this.velo.velocidadeEscalarMedia(compimentoPonte, velocidade);
-        alert(`O tempo é de  :${Math.round(tempoGasto * 60)}ms`);
+        const compimentoPonte = Number(this.txtEx4Input1.value);
+        const velocidade = Number(this.txtEx4Input2.value);
+        const tempoGasto = this.velo.velocidadeEscalarMedia(compimentoPonte, velocidade) * 60;
+        this.txtEx4Result.value = String(tempoGasto);
     }
     /**
      * Uma familia viaja a 100km por 2hora, eles param em um posto de gasolinas por 30 minutos,

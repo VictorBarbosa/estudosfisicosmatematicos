@@ -23,13 +23,6 @@ export declare class Velocidades {
      */
     distanciaPercorrida(velocidade: number, tempo: number): number;
     /**
-      
-       *
-       * @param distacia Distancia percorrida
-       * @param tempo Delta T(ΔT) tempo de percurso
-       * @returns Velocidade escalar media
-       */
-    /**
      * Velocidade vetorial media, mede a velocidade entre origem e destino
      * porem se origem e destino forem os mesmo a velocidade sera igual a 0
      *

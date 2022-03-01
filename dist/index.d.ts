@@ -9,9 +9,20 @@ declare class Index {
     private txtEx2Input1;
     private txtEx2Input2;
     private txtEx2Result;
+    /** Ex3  */
+    private txtEx3Input1;
+    private txtEx3Input2;
+    private txtEx3Input3;
+    private txtEx3Result;
+    /** Ex 4 */
+    private txtEx4Input1;
+    private txtEx4Input2;
+    private txtEx4Result;
     constructor();
     onExercicio1(): void;
     onExercicio2(): void;
+    onExercicio3(): void;
+    onExercicio4(): void;
     /**
      * Sabendo que um jogador correu uma distancia de 12000 metros em 90 minutos ,
      * qual era sua velocidade escalar media em KM era de  ?

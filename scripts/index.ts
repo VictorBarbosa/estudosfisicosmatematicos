@@ -12,9 +12,20 @@ class Index {
     private txtEx2Input1: HTMLInputElement = document.getElementById('txtEx2Input1') as HTMLInputElement;
     private txtEx2Input2: HTMLInputElement = document.getElementById('txtEx2Input2') as HTMLInputElement;
     private txtEx2Result: HTMLInputElement = document.getElementById('txtEx2Result') as HTMLInputElement;
+    /** Ex3  */
+    private txtEx3Input1: HTMLInputElement = document.getElementById('txtEx3Input1') as HTMLInputElement;
+    private txtEx3Input2: HTMLInputElement = document.getElementById('txtEx3Input2') as HTMLInputElement;
+    private txtEx3Input3: HTMLInputElement = document.getElementById('txtEx3Input3') as HTMLInputElement;
+    private txtEx3Result: HTMLInputElement = document.getElementById('txtEx3Result') as HTMLInputElement;
+    /** Ex 4 */
+    private txtEx4Input1: HTMLInputElement = document.getElementById('txtEx4Input1') as HTMLInputElement;
+    private txtEx4Input2: HTMLInputElement = document.getElementById('txtEx4Input2') as HTMLInputElement;
+    private txtEx4Result: HTMLInputElement = document.getElementById('txtEx4Result') as HTMLInputElement;
     constructor() {
         this.onExercicio1();
         this.onExercicio2();
+        this.onExercicio3();
+        this.onExercicio4();
     }
 
     onExercicio1() {
@@ -28,6 +39,20 @@ class Index {
         this.txtEx2Input2.addEventListener('change', this.exercicio2.bind(this));
         this.exercicio2();
     }
+    
+    onExercicio3() {
+        this.txtEx3Input1.addEventListener('change', this.exercicio3.bind(this));
+        this.txtEx3Input2.addEventListener('change', this.exercicio3.bind(this));
+        this.txtEx3Input3.addEventListener('change', this.exercicio3.bind(this));
+        this.exercicio3();
+    }
+
+    onExercicio4() {
+         
+        this.txtEx4Input1.addEventListener('change', this.exercicio4.bind(this));
+        this.txtEx4Input2.addEventListener('change', this.exercicio4.bind(this));
+        this.exercicio4();
+    }
 
     /**
      * Sabendo que um jogador correu uma distancia de 12000 metros em 90 minutos , 
@@ -35,12 +60,10 @@ class Index {
      */
     exercicio1() {
         if (this.txtEx1Input1 && this.txtEx1Input2) {
-
             const km = 1000
             const horas = 60;
             const distanciaEmMetros = Number(this.txtEx1Input1.value) / km;
             const tempoEmMinutos = Number(this.txtEx1Input2.value) / horas;
-
             const velocidadeMedia = this.velo.velocidadeEscalarMedia(distanciaEmMetros, tempoEmMinutos)
             this.txtEx1Result.value = String(velocidadeMedia);
         }
@@ -75,12 +98,13 @@ class Index {
         /**
          * Convertendo metros para km 
          */
-        const distancia = Utils.ConverterMetrosParaKilometros(1500);
+        const distancia = Utils.ConverterMetrosParaKilometros(Number(this.txtEx3Input3.value));
         // arredondando o tempo e depois dividindo por 60 minutos , teremos um quarto de hora (0,25)
-        const tempo = Math.round(14.51) / 60;
+        const tempo = Math.round(Number(`${this.txtEx3Input1.value}.${this.txtEx3Input2.value}`)) / 60;
 
         const velocidadeMedia = this.velo.velocidadeEscalarMedia(distancia, tempo)
-        alert(`A velocidade do nadador era de   :${velocidadeMedia}km`)
+        this.txtEx3Result.value = String(velocidadeMedia);
+         
     }
 
     /**
@@ -88,11 +112,12 @@ class Index {
      * com uma velodidade media de 72 KM/h, gastara para isso um intervalo de dempo em minutos igual a ?
      */
     exercicio4() {
-        const compimentoPonte = 14;
-        const velocidade = 72
+         
+        const compimentoPonte = Number(this.txtEx4Input1.value);
+        const velocidade =   Number(this.txtEx4Input2.value);
 
-        const tempoGasto = this.velo.velocidadeEscalarMedia(compimentoPonte, velocidade)
-        alert(`O tempo é de  :${Math.round(tempoGasto * 60)}ms`)
+        const tempoGasto = this.velo.velocidadeEscalarMedia(compimentoPonte, velocidade) * 60;
+        this.txtEx4Result.value = String(tempoGasto);
     }
 
 
