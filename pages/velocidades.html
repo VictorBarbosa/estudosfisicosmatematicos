@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="/">Exemplos</a>
+    <div>
+      <h4>Exemplo 1 :</h4>
+      <h5>
+        <form action="">
+          Sabendo que um jogador correu uma distancia de
+          <input type="number" min="0" id="txtEx1Input1" value="120000" />
+          metros em
+          <input type="number" min="0" id="txtEx1Input2" value="90" />
+          minutos , qual era sua velocidade escalar media em KM era de ?
+          <br />
+          Resultado:
+          <input type="number" min="0" id="txtEx1Result" readonly value="90" />
+        </form>
+      </h5>
+    </div>
+    ************************************************************************************************
+    <div>
+      <h4>Exemplo 2 :</h4>
+      <h5>
+        <form action="">
+          A distancia entre dois sensores (radar) é de 
+          <input type="number" min="0" id="txtEx2Input1" value="2" />
+          metros,  qual é o tempo minimo em segundos que o motorista deve gastar para passar pelo radar cujo o
+          limite é de <input type="number" min="0" id="txtEx2Input2" value="40" />km/h, sem receber uma multa é de ? 
+
+          <br />
+          Resultado:
+          <input type="number" min="0" min="0" id="txtEx2Result" readonly value="90" />
+          metros por segundo
+        </form>
+      </h5>
+    </div>
+  </body>
+  <script type="module">
+    import * as ind from "../dist/index.js";
+    new ind.Index();
+  </script>
+</html>
